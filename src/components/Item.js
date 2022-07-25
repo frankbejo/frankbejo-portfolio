@@ -8,6 +8,7 @@ const Item = (projects) => {
             <div className="image-container">
             <img src={image.desktop_view} alt="adawdawd" />
             </div>
+            <div className="item-right">
             <div className="project-tittle">
                 <span>{projectname}</span>
                 <p>{desc}</p>
@@ -19,6 +20,7 @@ const Item = (projects) => {
                 <div className="view-live">
                     viewlive
                 </div>
+            </div>
             </div>
         </li>
     )

@@ -2,11 +2,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { StyledHome } from "../Theme";
+import {motion} from 'framer-motion';
 
 const Home = () => {
     return(
         <StyledHome>
             <section className="home">
+                <motion.div 
+                className="landing-home-page"
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{opacity: 0}}                >
                 <div className="title-page">
                     <div className="little-greet">
                         <span>Hi I'm</span>
@@ -20,12 +26,14 @@ const Home = () => {
                 cum numquam a amet placeat, consequatur eius exercitationem.</p>
                 <div className="seemore">
                     <div className="seemore-button">
-                    <span>Learn More</span>
+                    <span>Learn more</span>
                     <FontAwesomeIcon icon={faChevronRight} />
                     </div>
                 </div>
                 <div className="socials">
-                    <ul className="social-list">
+                    <motion.ul 
+                    className="social-list"
+                    >
                         <li>
                             <FontAwesomeIcon icon={faFacebook} />
                         </li>
@@ -35,8 +43,9 @@ const Home = () => {
                         <li>
                             <FontAwesomeIcon icon={faLinkedinIn} />
                         </li>
-                    </ul>
+                    </motion.ul>
                 </div>
+                </motion.div>
             </section>
         </StyledHome>
     )

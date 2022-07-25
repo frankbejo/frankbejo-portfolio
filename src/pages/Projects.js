@@ -1,5 +1,6 @@
 import { StyledProjects } from "../Theme"
 import Item from "../components/Item"
+import {motion} from 'framer-motion';
 
 const Projects = () => {
 
@@ -42,7 +43,13 @@ const Projects = () => {
 
     return(
         <StyledProjects>
-            <section className="projects">
+            <motion.section 
+            className="projects"
+            
+            initial={{marginRight: "100vw"}}
+            animate={{marginRight: "0vw"}}
+            exit={{marginLeft: "-100vw"}}
+            >
                 <div className="title-page">
                     <div className="little-text">
                         <span>My personal</span>
@@ -60,7 +67,7 @@ const Projects = () => {
                         }
                     </ul>
                 </div>
-            </section>    
+            </motion.section>    
         </StyledProjects>
     )
 }

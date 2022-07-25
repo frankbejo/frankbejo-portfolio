@@ -1,47 +1,76 @@
-import { useState } from "react";
+import {useEffect, useLayoutEffect, useState } from "react";
 import { NavLink, Outlet } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { StyledNavbar, GlobalStyles, darkmode, lightmode } from "../Theme";
-import darkmodelogo from '../images/dark-logo.png'
-import lightmodelogo from '../images/light-logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun, faMoon, faBars, faClose } from '@fortawesome/free-solid-svg-icons'
+import logo from '../images/frankbejologo.png';
+import { faHome, faListCheck, faCircleQuestion,faPaperPlane, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 const Navbar = () => {
-    const [theme, settheme] = useState(false)
+    const [theme, settheme] = useState(null)
     const [togglemenu, settogglemenu] = useState(false)
 
+    const CheckTheme = () => {
+        if(localStorage.getItem("theme") === null){
+            localStorage.setItem("theme", theme)
+        }
+    
+        else{
+            settheme(localStorage.getItem("theme"))
+            console.log("wqeqwasdq")
+        }
+    
+    }
+
+    const SetTheme = () => {
+        settheme(!theme)
+        localStorage.setItem("theme",theme)
+        console.log(theme)
+    }
+
+    useEffect(() => {
+        CheckTheme()
+    }, [])
+
+
+    console.log(localStorage.getItem("theme"))
+    
     return(
-        <ThemeProvider theme={theme ? darkmode:lightmode}>
+        <ThemeProvider theme={theme ? lightmode:darkmode}>
         <StyledNavbar>
             <nav>
-                <div className="menu" onClick={() => settogglemenu(!togglemenu)}>
-                    <FontAwesomeIcon icon={togglemenu ? faClose:faBars} />
+                <div className="top-nav">
+                    <div className="brand-logo">
+                        <NavLink to="/">
+                        <img src={logo} alt="logo" />
+                        </NavLink>
+                    </div>
+                    <div className={`toggle-theme ${theme ? "light":"dark"}`} onClick={() => SetTheme()}>
+                        {
+                            <FontAwesomeIcon icon={theme ? faSun : faMoon} />
+                        }
+                    </div>
                 </div>
-                <div className="brand-logo">
-                    <img src={theme ? lightmodelogo : darkmodelogo} alt="logo" />
-                </div>
-                <div className="theme-mode" onClick={() => settheme(!theme)}>
-                    <FontAwesomeIcon icon={theme ? faMoon : faSun} />
+                <div className="side-nav">
+                    <ul className="menu-list">
+                        <li className="active">
+                            <NavLink to="projects">
+                                <FontAwesomeIcon icon={faHome} />
+                            </NavLink>
+                        </li>
+                        <li>
+                            <FontAwesomeIcon icon={faListCheck} />
+                        </li>
+                        <li>
+                            <FontAwesomeIcon icon={faCircleQuestion} />
+                        </li>
+                        <li>
+                            <FontAwesomeIcon icon={faPaperPlane} />
+                        </li>
+                    </ul>
                 </div>
             </nav>
-            <div className={`side-menu ${togglemenu ? "show":""}`}>
-                <ul className="menu-list">
-                    <li>
-                        <NavLink to="/" className={({isActive}) => {return isActive ? "active":" "}} onClick={() => settogglemenu(false)}>home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/projects" className={({isActive}) => {return isActive ? "active":" "}} onClick={() => settogglemenu(false)}>projects</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/contacts" className={({isActive}) => {return isActive ? "active":" "}} onClick={() => settogglemenu(false)}>contacts</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/about" className={({isActive}) => {return isActive ? "active":" "}} onClick={() => settogglemenu(false)}>about</NavLink>
-                    </li>
-                </ul>
-            </div>
-            <div className={`backdrop ${togglemenu ? "show":""}`} onClick={() => settogglemenu(false)}></div>
         </StyledNavbar>
         <Outlet />
         <GlobalStyles />

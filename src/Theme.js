@@ -1,11 +1,11 @@
 import styled, { createGlobalStyle } from 'styled-components'
-
 export const GlobalStyles = createGlobalStyle`
     *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Oswald', sans-serif;
+        font-family: 'Inknut Antiqua', serif;
+        line-height: 22px;
     }
 
     body{
@@ -14,164 +14,134 @@ export const GlobalStyles = createGlobalStyle`
     `
 
 export const lightmode = {
-    fontColor: "#000000",
-    backgroundColor: "#FFFFFF",
-    navColor: "#E9E9E9",
-    componentColor: "#D9D9D9"
+    fontColor: "#7691BC",
+    backgroundColor: "#F5F5F5",
+    navColor: "#DFE5EC",
+    componentColor: "#4B72AF"
 }
 
 export const darkmode = {
-    fontColor: "#FFFFFF",
-    backgroundColor: "#131313",
-    navColor: "#2D2D2D",
-    componentColor: "#222222"
+    fontColor: "#7691BC",
+    backgroundColor: "#212121",
+    navColor: "#2B2E34",
+    componentColor: "#729DE3"
 }
 
 
 export const StyledNavbar = styled.div`
 
-    nav{
-        width: 100%;
-        height: 80px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        background-color: ${(props) => props.theme.navColor};
-        padding: 10px;
-        position: fixed;
-        top: 0;
-        z-index: 1000;
-        border-bottom: 1px solid ${(props) => props.theme.fontColor};
-    }
+nav{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 100;
+}
 
-    .menu, .theme-mode{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 30px;
-        height: 30px;
-        background-color: ${(props) => props.theme.componentColor};;
-    }
+.top-nav{
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: ${(props) => props.theme.navColor};
+    padding: 10px 10px;
+}
 
-    img{
-        width: 50px;
-        height: 50px;
-    }
+.side-nav{
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    height: 100vh;
+    width: 60px;
+    padding: 10px;
+    background-color: ${(props) => props.theme.navColor};
+    z-index: -1;
+}
 
-    svg{
-        width: 20px;
-        height: 20px;
-        color: ${(props) => props.theme.fontColor};
-    }
+.menu-list{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 10px;
+}
 
-    .side-menu{
-        display: flex;
-        position: fixed;
-        width: auto;
-        height: 100%;
-        background-color: ${(props) => props.theme.navColor};
-        transition: margin-left 300ms ease-in-out;
-        margin-top: 80px;
-        margin-left: -200px;
-        z-index: 1000px;
-    }
+.brand-logo img{
+    width: 40px;
+    height: auto;
+}
 
-    .side-menu.show{
-        margin-left: 0;
-    }
+.menu-list li.active svg path{
+    fill: ${(props) => props.theme.fontColor};
+}
 
-    .menu-list{
-        list-style: none;
-        padding: 10px;
-    }
+svg{
+    width: 20px;
+    height: 20px;
+}
 
-    .menu-list li{
-        padding: 10px 50px 10px 0;
-    }
+svg path{
+    stroke: ${(props) => props.theme.fontColor};
+    fill: ${(props) => props.theme.backgroundColor};
+    stroke-width: 20;
+}
 
-    .menu-list li a{
-        color: ${(props) => props.theme.fontColor};
-        text-decoration: none;
-    }
+.toggle-theme{
+    width: 35px;
+    height: 20px;
+    display: flex;
+    padding: 1px;
+    align-items: center;
+    background-color: ${(props) => props.theme.fontColor};
+    border-radius: 20px;
+    transition: 300ms ease-in-out;
+}
 
-    .menu-list li a.active{
-        font-weight: bold;
-    }
-
-    .backdrop{
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        margin-left: -100vw;
-    }
-
-    .backdrop.show{
-        margin-left: 0;
-    }
+.toggle-theme.light{
+    justify-content: end;
+}
 `
 
 export const StyledHome = styled.div`
-    display: flex;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    z-index: -2;
 
     .home{
         display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .landing-home-page{
+        display: flex;
+        position: relative;
         flex-direction: column;
         align-items: center;
+        padding-left: 60px;
+        width: 80%;
         gap: 10px;
-        margin-top: 80px;
-    }
-
-    .title-page{
-        color: ${(props) => props.theme.fontColor};
-    }
-
-    .little-greet{
-        position: absolute;
-        margin-left: 40px;
-        margin-top: 6px;
-    }
-
-    .big-name span{
-        font-weight: bold;
-        font-size: 50px;
     }
 
     .introduction{
-        width: 80%;
-        text-align: justify;
-        color: ${(props) => props.theme.fontColor};
-        font-size: 15px;
-    }
-
-    .seemore{
-        width: 80%;
-    }
-
-    .seemore-button{
         display: flex;
-        gap: 15px;
-        align-items: center;
-        justify-content: space-between;
-        width: 140px;
-        padding: 10px;
-        float: right;
-        background-color: ${(props) => props.theme.navColor};
+        justify-content: center;
         color: ${(props) => props.theme.fontColor};
+        text-align: justify;
+        width: 100%;
     }
 
     .socials{
-        width: 80%;
+        display: flex;
+        width: 100%;
+        justify-content: left;
     }
 
-    .social-list{
+    .socials .social-list{
         display: flex;
+        list-style: none;
+        color: ${(props) => props.theme.fontColor};
         gap: 20px;
     }
 
@@ -179,110 +149,106 @@ export const StyledHome = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+
+    .social-list li::after{
+        content: "";
+        position: absolute;
         width: 30px;
         height: 30px;
-        border-radius: 20px;
         background-color: ${(props) => props.theme.navColor};
+        border-radius: 20px;
+        z-index: -1;
     }
 
-    .social-list li svg{
-        width: 20px;
-        height: 20px;
+    .seemore{
+        display: flex;
+        width: 100%;
+        justify-content: right;
         color: ${(props) => props.theme.fontColor};
     }
-`;
+
+    .seemore-button{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-radius: 5px;
+        padding: 8px;
+        overflow: hidden;
+        border: 1px solid ${(props) => props.theme.fontColor};
+    }
+
+    .seemore-button:hover{
+        
+    }
+
+    .seemore-button svg{
+        width: 15px;
+        height: 15px;
+    }
+
+    svg{
+    width: 20px;
+    height: 20px;
+}
+
+`
 
 export const StyledProjects = styled.div`
-    display: flex;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    z-index: -2;
 
     .projects{
         display: flex;
-        flex-direction: column;
-        align-items: center;
         gap: 10px;
-        margin-top: 100px;
-    }
-
-    .title-page{
-        color: ${(props) => props.theme.fontColor};
-    }
-
-    .little-text{
-        position: absolute;
-        margin-left: 8px;
-        margin-top: 11px;
-        font-size: 14px;
-    }
-
-    .big-text{
-        font-size: 50px;
-        font-weight: bold;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 60px;
+        padding-top: 120px;
+        width: 100%;
     }
 
     .project-container{
         display: flex;
+        justify-content: center;
     }
 
     .project-list{
         display: grid;
-        grid-template-columns: repeat(1, 370px);
-        gap: 20px;
+        grid-template-columns: repeat(1, 80%);
+        grid-gap: 20px;
+        list-style: none;
         justify-content: center;
-        padding-bottom: 100px;
     }
 
     .project-list li{
         display: flex;
-        flex-direction: column;
-        gap: 10px;
-        list-style: none;
-        background-color: ${(props) => props.theme.navColor};
-        padding: 10px;
-        color: ${(props) => props.theme.fontColor};
-        border-radius: 10px;
-        
+        justify-content: center;
     }
 
     .image-container{
+        width: 1000px;
+        height: 500px;
+        background-color: ${(props) => props.theme.navColor};
+        border: 1px solid ${(props) => props.theme.fontColor};
+    }
+
+    .item-right{
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
     }
 
     .image-container img{
-        width: 350px;
-        height: 250px;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
+    }
+
+    .project-tittle{
+        display: flex;
+        color: ${(props) => props.theme.fontColor};
     }
 
     .project-tittle span{
         font-weight: bold;
-    }
-
-    .bottom-links{
-        display: flex;
-        justify-content: right;
-        gap: 20px;
-    }
-
-    .bottom-links > *{
-        padding: 10px;
-    }
-
-    .view-code{
-        background-color: ${(props) => props.theme.fontColor};
-        border-radius: 5px;
-        color: ${(props) => props.theme.backgroundColor};
-    }
-
-    .view-live{
-        background-color: skyblue;
-        border-radius: 5px;
-        color: ${(props) => props.theme.fontColor};
     }
 `
