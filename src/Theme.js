@@ -14,14 +14,14 @@ export const GlobalStyles = createGlobalStyle`
     `
 
 export const lightmode = {
-    fontColor: "#7691BC",
+    fontColor: "#4B72AF",
     backgroundColor: "#F5F5F5",
     navColor: "#DFE5EC",
     componentColor: "#4B72AF"
 }
 
 export const darkmode = {
-    fontColor: "#7691BC",
+    fontColor: "#729DE3",
     backgroundColor: "#212121",
     navColor: "#2B2E34",
     componentColor: "#729DE3"
@@ -72,7 +72,7 @@ nav{
     height: auto;
 }
 
-.menu-list li.active svg path{
+.menu-list li a.active svg path{
     fill: ${(props) => props.theme.fontColor};
 }
 
@@ -199,12 +199,26 @@ export const StyledProjects = styled.div`
 
     .projects{
         display: flex;
-        gap: 10px;
+        gap: 40px;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         padding-left: 60px;
         padding-top: 120px;
         width: 100%;
+    }
+
+    .title-page{
+        width: 70%;
+        color: ${(props) => props.theme.fontColor};
+    }
+
+    .title-page .little-text{
+        margin-left: -5px;
+    }
+
+    .title-page .big-text{
+        font-size: 48px;
     }
 
     .project-container{
@@ -214,26 +228,28 @@ export const StyledProjects = styled.div`
 
     .project-list{
         display: grid;
-        grid-template-columns: repeat(1, 80%);
-        grid-gap: 20px;
+        grid-template-columns: repeat(1, 1000px);
+        grid-gap: 30px;
         list-style: none;
         justify-content: center;
     }
 
     .project-list li{
         display: flex;
+        gap: 20px;
         justify-content: center;
     }
 
     .image-container{
-        width: 1000px;
-        height: 500px;
+        width: 600px;
+        height: 300px;
         background-color: ${(props) => props.theme.navColor};
         border: 1px solid ${(props) => props.theme.fontColor};
     }
 
     .item-right{
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
     }
 
@@ -245,10 +261,31 @@ export const StyledProjects = styled.div`
 
     .project-tittle{
         display: flex;
+        gap: 10px;
+        flex-direction: column;
         color: ${(props) => props.theme.fontColor};
+    }
+
+    .project-tittle p{
+        text-align: justify;
     }
 
     .project-tittle span{
         font-weight: bold;
+    }
+
+    .project-tittle p{
+        font-weight: 300;
+    }
+
+    .bottom-links{
+        display: flex;
+        gap: 20px;
+        color: ${(props) => props.theme.fontColor};
+    }
+
+    .bottom-links div{
+        padding: 5px;
+        border: 1px solid ${(props) => props.theme.componentColor};
     }
 `

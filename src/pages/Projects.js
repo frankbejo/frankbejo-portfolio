@@ -46,9 +46,9 @@ const Projects = () => {
             <motion.section 
             className="projects"
             
-            initial={{marginRight: "100vw"}}
-            animate={{marginRight: "0vw"}}
-            exit={{marginLeft: "-100vw"}}
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
             >
                 <div className="title-page">
                     <div className="little-text">
@@ -61,8 +61,8 @@ const Projects = () => {
                 <div className="project-container">
                     <ul className="project-list">
                         {
-                            projects.map(item => {
-                                return <Item {...item}/>
+                            projects.map((item, index) => {
+                                return <Item {...item} index={index}/>
                             })
                         }
                     </ul>

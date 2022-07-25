@@ -1,26 +1,25 @@
 import pic from '../images/projects-view/jandf-clothing-products-tablet.JPG'
 
-const Item = (projects) => {
+const Item = (projects, index) => {
     const {projectname, image, desc} = projects;
-    console.log(pic)
     return(
-        <li>
+        <li >
             <div className="image-container">
-            <img src={image.desktop_view} alt="adawdawd" />
+                <img src={image.desktop_view} alt="adawdawd" />
             </div>
             <div className="item-right">
-            <div className="project-tittle">
+                <div className="project-tittle">
                 <span>{projectname}</span>
                 <p>{desc}</p>
-            </div>
-            <div className="bottom-links">
-                <div className="view-code">
-                    viewcode
                 </div>
+                <div className="bottom-links">
+                    <div className="view-code">
+                        viewcode
+                    </div>
                 <div className="view-live">
                     viewlive
                 </div>
-            </div>
+                </div>
             </div>
         </li>
     )

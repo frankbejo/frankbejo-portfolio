@@ -11,28 +11,11 @@ const Navbar = () => {
     const [theme, settheme] = useState(null)
     const [togglemenu, settogglemenu] = useState(false)
 
-    const CheckTheme = () => {
-        if(localStorage.getItem("theme") === null){
-            localStorage.setItem("theme", theme)
-        }
-    
-        else{
-            settheme(localStorage.getItem("theme"))
-            console.log("wqeqwasdq")
-        }
-    
-    }
-
     const SetTheme = () => {
         settheme(!theme)
         localStorage.setItem("theme",theme)
         console.log(theme)
     }
-
-    useEffect(() => {
-        CheckTheme()
-    }, [])
-
 
     console.log(localStorage.getItem("theme"))
     
@@ -54,19 +37,25 @@ const Navbar = () => {
                 </div>
                 <div className="side-nav">
                     <ul className="menu-list">
-                        <li className="active">
-                            <NavLink to="projects">
+                        <li>
+                            <NavLink to="/" className={({isActive}) => {return isActive ? "active":""}}>
                                 <FontAwesomeIcon icon={faHome} />
                             </NavLink>
                         </li>
                         <li>
-                            <FontAwesomeIcon icon={faListCheck} />
+                            <NavLink to="projects" className={({isActive}) => {return isActive ? "active":""}}>
+                                <FontAwesomeIcon icon={faListCheck} />
+                            </NavLink>
                         </li>
                         <li>
-                            <FontAwesomeIcon icon={faCircleQuestion} />
+                            <NavLink to="about" className={({isActive}) => {return isActive ? "active":""}}>
+                                <FontAwesomeIcon icon={faCircleQuestion} />
+                            </NavLink>
                         </li>
                         <li>
-                            <FontAwesomeIcon icon={faPaperPlane} />
+                            <NavLink to="contacts" className={({isActive}) => {return isActive ? "active":""}}>
+                                <FontAwesomeIcon icon={faPaperPlane} />
+                            </NavLink>
                         </li>
                     </ul>
                 </div>

@@ -33,6 +33,10 @@ const Home = () => {
                 <div className="socials">
                     <motion.ul 
                     className="social-list"
+
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    exit={{opacity: 0}}
                     >
                         <li>
                             <FontAwesomeIcon icon={faFacebook} />
