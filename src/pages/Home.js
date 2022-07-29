@@ -12,7 +12,7 @@ const Home = () => {
                 className="landing-home-page"
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
-                exit={{opacity: 0}}                >
+                exit={{left: "100vw"}}>
                 <div className="title-page">
                     <div className="little-greet">
                         <span>Hi I'm</span>
@@ -33,16 +33,18 @@ const Home = () => {
                 <div className="socials">
                     <motion.ul 
                     className="social-list"
-
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    exit={{opacity: 0}}
                     >
                         <li>
-                            <FontAwesomeIcon icon={faFacebook} />
+                            <a href="https://www.facebook.com/frank.bejo" target="_blank">
+                                <FontAwesomeIcon icon={faFacebook} />
+                            </a>
+                            
                         </li>
                         <li>
-                            <FontAwesomeIcon icon={faGithub} />
+                            <a href="https://github.com/frankbejo" target="_blank">
+                                <FontAwesomeIcon icon={faGithub} />
+                            </a>
+                            
                         </li>
                         <li>
                             <FontAwesomeIcon icon={faLinkedinIn} />

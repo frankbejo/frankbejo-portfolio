@@ -1,17 +1,20 @@
 import { StyledProjects } from "../Theme"
 import Item from "../components/Item"
 import {motion} from 'framer-motion';
+import desktop from '../images/projects-view/jandf-clothing-home.JPG'
+import products from '../images/projects-view/jandf-clothing-products.JPG'
+import products_tablet from '../images/projects-view/jandf-clothing-products-tablet.JPG'
+
 
 const Projects = () => {
-
     const projects = [
         {
             projectname: "&Clothing",
             desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dolor culpa provident aliquid eveniet dignissimos inventore cupiditate! Impedit, quaerat sed!",
             image: {
-                desktop_view: "/static/media/jandf-clothing-home.4dc21fb0c3a97d2f18e3.JPG",
-                tablet_view: "/static/media/jandf-clothing-products.4698b9dc845751e829f2.JPG",
-                other: "/static/media/jandf-clothing-products-tablet.3ef3e3b0f5eff2d36064.JPG"
+                desktop_view: desktop,
+                tablet_view: "../images/projects-view/jandf-clothing-home.jpg",
+                other: "../images/projects-view/jandf-clothing-home.jpg"
             },
             liveviewlink: "",
             viewcodelink: ""
@@ -20,7 +23,7 @@ const Projects = () => {
             projectname: "Kanban Board",
             desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dolor culpa provident aliquid eveniet dignissimos inventore cupiditate! Impedit, quaerat sed!",
             image: {
-                desktop_view: "/static/media/jandf-clothing-products.4698b9dc845751e829f2.JPG",
+                desktop_view: products,
                 tablet_view: "/static/media/jandf-clothing-products.4698b9dc845751e829f2.JPG",
                 other: "/static/media/jandf-clothing-products-tablet.3ef3e3b0f5eff2d36064.JPG"
             },
@@ -31,7 +34,7 @@ const Projects = () => {
             projectname: "Complete the Sentence Mini Game",
             desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dolor culpa provident aliquid eveniet dignissimos inventore cupiditate! Impedit, quaerat sed!",
             image: {
-                desktop_view: "/static/media/jandf-clothing-products-tablet.3ef3e3b0f5eff2d36064.JPG",
+                desktop_view: products_tablet,
                 tablet_view: "/static/media/jandf-clothing-products.4698b9dc845751e829f2.JPG",
                 other: "/static/media/jandf-clothing-products-tablet.3ef3e3b0f5eff2d36064.JPG"
             }
@@ -39,8 +42,7 @@ const Projects = () => {
             liveviewlink: "",
             viewcodelink: ""
         }
-    ]
-
+    ]    
     return(
         <StyledProjects>
             <motion.section 
@@ -61,10 +63,12 @@ const Projects = () => {
                 <div className="project-container">
                     <ul className="project-list">
                         {
-                            projects.map((item, index) => {
-                                return <Item {...item} index={index}/>
-                            })
+                                projects.map((item, index) => {
+                                    return <Item {...item} index={index}/>
+                                })
+                            
                         }
+                        
                     </ul>
                 </div>
             </motion.section>    

@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Navbar = () => {
     const [theme, settheme] = useState(null)
-    const [togglemenu, settogglemenu] = useState(false)
 
     const SetTheme = () => {
         settheme(!theme)
@@ -26,7 +25,7 @@ const Navbar = () => {
                 <div className="top-nav">
                     <div className="brand-logo">
                         <NavLink to="/">
-                        <img src={logo} alt="logo" />
+                            <img src={logo} alt="logo" />
                         </NavLink>
                     </div>
                     <div className={`toggle-theme ${theme ? "light":"dark"}`} onClick={() => SetTheme()}>

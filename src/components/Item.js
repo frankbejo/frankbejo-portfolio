@@ -1,11 +1,9 @@
-import pic from '../images/projects-view/jandf-clothing-products-tablet.JPG'
-
-const Item = (projects, index) => {
-    const {projectname, image, desc} = projects;
+const Item = ({index, image, projectname, desc}) => {
+    
     return(
-        <li >
+        <li className={(index %= 2) === 1 ? "reverse":""}>
             <div className="image-container">
-                <img src={image.desktop_view} alt="adawdawd" />
+                <img src={image.desktop_view} alt={image.desktop_view} />
             </div>
             <div className="item-right">
                 <div className="project-tittle">
