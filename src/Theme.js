@@ -309,7 +309,7 @@ export const StyledProjects = styled.div`
     .image-container img{
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     .project-tittle{
@@ -366,7 +366,7 @@ export const StyledProjects = styled.div`
 
     .project-list{
         grid-template-columns: repeat(2, 40%);
-        grid-gap: 40px;
+        grid-gap: 55px;
         list-style: none;
         justify-content: center;
     }
@@ -394,8 +394,14 @@ export const StyledProjects = styled.div`
     }
 
     .image-container{
+        width: 330px;
+        height: 330px;
+    }
+
+    .image-container img{
         width: 100%;
         height: 100%;
+        object-fit: contain;
     }
     }
 
@@ -431,8 +437,17 @@ export const StyledProjects = styled.div`
     }
 
     .image-container{
-        width: 100%;
-        height: 100%;
+        width: 300px;
+        height: 300px;
+    }
+
+    }
+
+    @media screen and (max-width: 365px) {
+
+    .image-container{
+        width: 250px;
+        height: 250px;
     }
 
     }
