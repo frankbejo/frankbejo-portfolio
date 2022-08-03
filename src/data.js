@@ -14,7 +14,7 @@ export const projects = [
         liveviewlink: "",
         viewcodelink: "",
         status: "online",
-        deployment: "Vercel"
+        deployment: "vercel"
     },
     {
         projectname: "Kanban Board",
@@ -26,8 +26,8 @@ export const projects = [
         },
         liveviewlink: "",
         viewcodelink: "",
-        status: "online",
-        deployment: "Vercel"
+        status: "building",
+        deployment: "vercel"
     },
     {
         projectname: "Complete the Sentence Mini Game",
@@ -41,6 +41,6 @@ export const projects = [
         liveviewlink: "",
         viewcodelink: "",
         status: "online",
-        deployment: "Vercel"
+        deployment: "vercel"
     }
 ] 
