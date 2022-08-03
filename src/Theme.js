@@ -324,7 +324,7 @@ export const StyledProjects = styled.div`
 
     .item-right{
         display: flex;
-        width: 500px;
+        width: 495px;
         flex-direction: column;
         justify-content: space-between;
     }
