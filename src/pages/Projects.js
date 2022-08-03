@@ -1,14 +1,27 @@
 import { StyledProjects } from "../Theme"
 import Item from "../components/Item"
-import {motion} from 'framer-motion';
+import {motion, useViewportScroll, useTransform} from 'framer-motion';
 import { projects } from "../data";
 import { useEffect, useState } from "react";
 import picture from "../images/projects-view/jandf-clothing-home.JPG";
 
 const Projects = () => {
+    const {scrollYProgress} = useViewportScroll();
+    const scale = useTransform(scrollYProgress, [0, 1], [0.2, 2]);
     const [data, setdata] = useState(projects)
 
-    console.log(data)
+    const container = {
+        hidden: { opacity: 1},
+        visible: {
+            opacity: 1,
+            transition: {
+            delayChildren: 0.3,
+            staggerChildren: 0.2
+            }
+            }
+        };
+
+    console.log(scale)
     return(
         <StyledProjects>
             <motion.section 
@@ -27,7 +40,11 @@ const Projects = () => {
                     </div>
                 </div>
                 <div className="project-container">
-                    <ul className="project-list">
+                    <motion.ul 
+                    className="project-list"
+                    variants={container}
+                    initial="hidden"
+                    animate="visible">
                         {
                                 data.map((item, index) => {
                                     return <Item {...item} index={index}/>
@@ -35,7 +52,7 @@ const Projects = () => {
                             
                         }
                         
-                    </ul>
+                    </motion.ul>
                 </div>
             </motion.section>    
         </StyledProjects>

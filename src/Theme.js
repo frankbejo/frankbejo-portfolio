@@ -157,7 +157,7 @@ export const StyledHome = styled.div`
         flex-direction: column;
         align-items: center;
         padding-left: 60px;
-        width: 80%;
+        width: 50%;
         gap: 20px;
         margin-top: 20px;
     }
@@ -167,7 +167,6 @@ export const StyledHome = styled.div`
         justify-content: center;
         color: ${(props) => props.theme.smallText};
         text-align: justify;
-        width: 100%;
         font-family: serif;
         line-height: 1.2;
     }
@@ -227,7 +226,7 @@ export const StyledHome = styled.div`
         background-color: ${(props) => props.theme.componenctBack};
         margin-left: -6px;
         z-index: -1;
-        transition: 300ms ease;
+        transition: width 300ms ease;
     }
 
     .seemore-button:hover .seemore-bg{
@@ -248,6 +247,13 @@ export const StyledHome = styled.div`
     svg{
     width: 20px;
     height: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .landing-home-page{
+        width: 90%;
+    }
+
 }
 
 `
@@ -295,6 +301,7 @@ export const StyledProjects = styled.div`
     .project-list li{
         display: flex;
         gap: 20px;
+        width: 100%;
         justify-content: center;
         padding-bottom: 20px;
         border-bottom: 2px solid ${(props) => props.theme.componenctBack};
@@ -332,7 +339,7 @@ export const StyledProjects = styled.div`
     .image-container img{
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
     }
 
     .project-tittle{
@@ -368,28 +375,51 @@ export const StyledProjects = styled.div`
 
     .bottom-links div{
         padding: 5px;
-        border: 1px solid ${(props) => props.theme.componentColor};
-        font-family: serif;
+        
+        font-family: 'Inknut Antiqua', serif;
         font-weight: 600;
-    }
-
-    .bottom-links .view-live{
-        color: ${(props) => props.theme.backgroundColor};
-        background-color: ${(props) => props.theme.fontColor};
+        font-size: 13px;
         border-radius: 3px;
     }
 
-    .bottom-links .view-code{
-        color: ${(props) => props.theme.fontColor};
-        background-color: ${(props) => props.theme.componenctBack};
+    .bottom-links .view-live{
+        border: 1px solid ${(props) => props.theme.componentColor};
+        color: ${(props) => props.theme.backgroundColor};
+        background-color: ${(props) => props.theme.smallText};
+        
     }
+
+    .bottom-links .view-code{
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        color: ${(props) => props.theme.fontColor};
+        
+        border: 1px solid ${(props) => props.theme.componentColor};
+    }
+
+    .view-code .viewcode-bg{
+        position: absolute;
+        margin-left: -5px;
+        height: 100%;
+        width: 0%;
+        background-color: ${(props) => props.theme.componenctBack};
+        z-index: -1;
+        transition: width 300ms ease-in-out;
+    }
+
+    .view-code:hover .viewcode-bg{
+        width: 100%;
+    }
+
 
     /* media quieries */
     @media screen and (max-width: 1160px) {
 
     .project-list{
         grid-template-columns: repeat(2, 40%);
-        grid-gap: 55px;
+        grid-gap: 30px;
         list-style: none;
         justify-content: center;
     }
@@ -425,7 +455,7 @@ export const StyledProjects = styled.div`
     .image-container img{
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
     }
     }
 
@@ -475,6 +505,26 @@ export const StyledAbout = styled.div`
         padding-top: 120px;
         padding-bottom: 120px;
         width: 100%;
+    }
+
+    img{
+        width: 20%;
+
+    }
+        
+`
+
+export const StyledContacts = styled.div`
+    section.contacts{
+        padding-left: 60px;
+        padding-top: 120px;
+        padding-bottom: 120px;
+        width: 100%;
+    }
+
+    img{
+        width: 20%;
+
     }
         
 `

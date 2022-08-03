@@ -5,6 +5,25 @@ import { StyledHome } from "../Theme";
 import {motion} from 'framer-motion';
 
 const Home = () => {
+    const container = {
+        hidden: { opacity: 1, scale: 0 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+            delayChildren: 0.3,
+            staggerChildren: 0.2
+            }
+            }
+        };
+
+        const item = {
+            hidden: { x: -10, opacity: 0 },
+            visible: {
+                x: 0,
+                opacity: 1
+                }
+            };
     return(
         <StyledHome>
             <section className="home">
@@ -33,23 +52,33 @@ const Home = () => {
                 </div>
                 <div className="socials">
                     <motion.ul 
-                    className="social-list"
+                    className="social-list container"
+                    variants={container}
+                    initial="hidden"
+                    animate="visible"
                     >
-                        <li>
+                        <motion.li 
+                        className='item'
+                        variants={item}
+                        >
                             <a href="https://www.facebook.com/frank.bejo" target="_blank">
                                 <FontAwesomeIcon icon={faFacebook} />
                             </a>
                             
-                        </li>
-                        <li>
+                        </motion.li>
+                        <motion.li
+                        className='item'
+                        variants={item}>
                             <a href="https://github.com/frankbejo" target="_blank">
                                 <FontAwesomeIcon icon={faGithub} />
                             </a>
                             
-                        </li>
-                        <li>
+                        </motion.li>
+                        <motion.li
+                        className='item'
+                        variants={item}>
                             <FontAwesomeIcon icon={faLinkedinIn} />
-                        </li>
+                        </motion.li>
                     </motion.ul>
                 </div>
                 </motion.div>

@@ -1,7 +1,15 @@
+import {motion} from 'framer-motion';
 const Item = ({index, image, projectname, desc}) => {
-    
+    const item = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1
+            }
+        };
     return(
-        <li className={(index %= 2) === 1 ? "reverse":""}>
+        <motion.li 
+        className={(index %= 2) === 1 ? "reverse":""}
+        variants={item}>
             <div className="image-container">
                 <img src={image.desktop_view} alt={image.desktop_view} />
             </div>
@@ -12,14 +20,15 @@ const Item = ({index, image, projectname, desc}) => {
                 </div>
                 <div className="bottom-links">
                     <div className="view-code">
-                        viewcode
+                        <span>viewcode</span> 
+                        <div className="viewcode-bg"></div>
                     </div>
                 <div className="view-live">
                     viewlive
                 </div>
                 </div>
             </div>
-        </li>
+        </motion.li>
     )
 }
 
