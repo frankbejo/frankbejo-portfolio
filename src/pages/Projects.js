@@ -3,6 +3,7 @@ import Item from "../components/Item"
 import {motion} from 'framer-motion';
 import { projects } from "../data";
 import { useEffect, useState } from "react";
+import picture from "../images/projects-view/jandf-clothing-home.JPG";
 
 const Projects = () => {
     const [data, setdata] = useState(projects)

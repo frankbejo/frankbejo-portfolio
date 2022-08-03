@@ -59,8 +59,8 @@ nav{
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    height: 60px;
     background-color: ${(props) => props.theme.navColor};
-    padding: 10px 10px;
 }
 
 .side-nav{
@@ -76,6 +76,14 @@ nav{
     z-index: -1;
 }
 
+.brand-logo img{
+    position: absolute;
+    width: 50px;
+    height: auto;
+    margin-top: -20px;
+    margin-left: 7px;
+}
+
 .menu-list{
     display: flex;
     flex-direction: column;
@@ -84,10 +92,6 @@ nav{
     
 }
 
-.brand-logo img{
-    width: 50px;
-    height: auto;
-}
 
 .menu-list li a.active svg path{
     fill: ${(props) => props.theme.fontColor};
@@ -110,6 +114,7 @@ svg path{
     height: 20px;
     display: flex;
     padding: 1px;
+    margin-right: 7px;
     align-items: center;
     background-color: ${(props) => props.theme.fontColor};
     border-radius: 20px;
@@ -163,8 +168,8 @@ export const StyledHome = styled.div`
         color: ${(props) => props.theme.smallText};
         text-align: justify;
         width: 100%;
-        font-size: 16px;
         font-family: serif;
+        line-height: 1.2;
     }
 
     .socials{
@@ -205,6 +210,7 @@ export const StyledHome = styled.div`
     }
 
     .seemore-button{
+        position: relative;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -214,8 +220,24 @@ export const StyledHome = styled.div`
         border: 1px solid ${(props) => props.theme.fontColor};
     }
 
+    .seemore-bg{
+        position: absolute;
+        width: 20%;
+        height: 100%;
+        background-color: ${(props) => props.theme.componenctBack};
+        margin-left: -6px;
+        z-index: -1;
+        transition: 300ms ease;
+    }
+
+    .seemore-button:hover .seemore-bg{
+        width: 100%;
+    }
+
     .seemore-button span{
-        font-family: serif;
+        font-family: 'Inknut Antiqua', serif;
+        font-weight: 600;
+        font-size: 13px;
     }
 
     .seemore-button svg{
@@ -292,8 +314,8 @@ export const StyledProjects = styled.div`
     }
 
     .image-container{
-        width: 600px;
-        height: 300px;
+        width: calc(100vw / 2);
+        height: calc(100vw / 4);
         background-color:${(props) => props.theme.componenctBack};
         border: 1px solid ${(props) => props.theme.fontColor};
         border-radius: 10px;
@@ -302,6 +324,7 @@ export const StyledProjects = styled.div`
 
     .item-right{
         display: flex;
+        width: 500px;
         flex-direction: column;
         justify-content: space-between;
     }
@@ -391,11 +414,12 @@ export const StyledProjects = styled.div`
 
     .item-right{
         gap: 20px;
+        width: auto;
     }
 
     .image-container{
-        width: 330px;
-        height: 330px;
+        width: calc(100vw / 2.7);
+        height: calc(100vw / 4.3);
     }
 
     .image-container img{
@@ -408,7 +432,7 @@ export const StyledProjects = styled.div`
     @media screen and (max-width: 800px) {
 
     .project-list{
-        grid-template-columns: repeat(1, 95%);
+        grid-template-columns: repeat(1, 90%);
         grid-gap: 40px;
         list-style: none;
         justify-content: center;
@@ -437,18 +461,20 @@ export const StyledProjects = styled.div`
     }
 
     .image-container{
-        width: 300px;
-        height: 300px;
+        width: calc(100vw / 1.3);
+        height: calc(100vw / 2.1);
     }
 
     }
 
-    @media screen and (max-width: 365px) {
+`
 
-    .image-container{
-        width: 250px;
-        height: 250px;
+export const StyledAbout = styled.div`
+    section.about{
+        padding-left: 60px;
+        padding-top: 120px;
+        padding-bottom: 120px;
+        width: 100%;
     }
-
-    }
+        
 `

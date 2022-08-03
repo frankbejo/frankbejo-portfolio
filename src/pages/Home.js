@@ -26,8 +26,9 @@ const Home = () => {
                 cum numquam a amet placeat, consequatur eius exercitationem.</p>
                 <div className="seemore">
                     <div className="seemore-button">
-                    <span>Learn more</span>
+                    <span>learn more</span>
                     <FontAwesomeIcon icon={faChevronRight} />
+                    <div className="seemore-bg"></div>
                     </div>
                 </div>
                 <div className="socials">

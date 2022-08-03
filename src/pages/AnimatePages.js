@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Home from "./Home";
 import Projects from "./Projects";
 import {AnimatePresence} from 'framer-motion';
+import About from "./About";
 
 const AnimatePages = () => {
 
@@ -13,7 +14,7 @@ const AnimatePages = () => {
                 <Route index element={<Home />}/>
                 <Route path='/projects' element={<Projects />} />
                 <Route path='/contacts' element={<Home />} />
-                <Route path='/about' element={<Home />} />
+                <Route path='/about' element={<About />} />
                 <Route path='*' element={<Projects />} />
                 </Route>
             </Routes>
