@@ -1,27 +1,13 @@
 import { StyledProjects } from "../Theme"
 import Item from "../components/Item"
-import {motion, useViewportScroll, useTransform} from 'framer-motion';
+import {motion} from 'framer-motion';
 import { projects } from "../data";
-import { useEffect, useState } from "react";
-import picture from "../images/projects-view/jandf-clothing-home.JPG";
+import {useState } from "react";
+import { container } from "../data";
 
 const Projects = () => {
-    const {scrollYProgress} = useViewportScroll();
-    const scale = useTransform(scrollYProgress, [0, 1], [0.2, 2]);
     const [data, setdata] = useState(projects)
 
-    const container = {
-        hidden: { opacity: 1},
-        visible: {
-            opacity: 1,
-            transition: {
-            delayChildren: 0.3,
-            staggerChildren: 0.2
-            }
-            }
-        };
-
-    console.log(scale)
     return(
         <StyledProjects>
             <motion.section 
@@ -32,9 +18,6 @@ const Projects = () => {
             exit={{opacity: 0}}
             >
                 <div className="title-page">
-                    <div className="little-text">
-                        <span>My personal</span>
-                    </div>
                     <div className="big-text">
                         <span>projects</span>
                     </div>

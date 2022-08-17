@@ -1,29 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { faFacebook, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { StyledHome } from "../Theme";
 import {motion} from 'framer-motion';
+import Socials from '../components/Socials';
 
 const Home = () => {
-    const container = {
-        hidden: { opacity: 1, scale: 0 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-            delayChildren: 0.3,
-            staggerChildren: 0.2
-            }
-            }
-        };
-
-        const item = {
-            hidden: { x: -10, opacity: 0 },
-            visible: {
-                x: 0,
-                opacity: 1
-                }
-            };
     return(
         <StyledHome>
             <section className="home">
@@ -51,35 +32,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="socials">
-                    <motion.ul 
-                    className="social-list container"
-                    variants={container}
-                    initial="hidden"
-                    animate="visible"
-                    >
-                        <motion.li 
-                        className='item'
-                        variants={item}
-                        >
-                            <a href="https://www.facebook.com/frank.bejo" target="_blank">
-                                <FontAwesomeIcon icon={faFacebook} />
-                            </a>
-                            
-                        </motion.li>
-                        <motion.li
-                        className='item'
-                        variants={item}>
-                            <a href="https://github.com/frankbejo" target="_blank">
-                                <FontAwesomeIcon icon={faGithub} />
-                            </a>
-                            
-                        </motion.li>
-                        <motion.li
-                        className='item'
-                        variants={item}>
-                            <FontAwesomeIcon icon={faLinkedinIn} />
-                        </motion.li>
-                    </motion.ul>
+                    <Socials />
                 </div>
                 </motion.div>
             </section>

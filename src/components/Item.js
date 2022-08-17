@@ -1,17 +1,14 @@
 import {motion} from 'framer-motion';
+import { Projectitem } from '../data';
+
 const Item = ({index, image, projectname, desc}) => {
-    const item = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1
-            }
-        };
+
     return(
         <motion.li 
         className={(index %= 2) === 1 ? "reverse":""}
-        variants={item}>
+        variants={Projectitem}>
             <div className="image-container">
-                <img src={image.desktop_view} alt={image.desktop_view} />
+                <img src={image.desktop_view} alt=" " />
             </div>
             <div className="item-right">
                 <div className="project-tittle">

@@ -43,6 +43,36 @@ export const darkmode = {
     componenctBack: "#2B2E34"
 }
 
+export const StyledSocials = styled.div`
+    .social-list{
+        display: flex;
+        list-style: none;
+        gap: 20px;
+    }
+
+    .social-list li, a{
+        color:  ${(props) => props.theme.componentColor};
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .social-list li::after{
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: ${(props) => props.theme.componenctBack};
+        border-radius: 20px;
+        z-index: -1;
+    }
+
+    svg{
+    width: 20px;
+    height: 20px;
+}
+`
 
 export const StyledNavbar = styled.div`
 
@@ -159,7 +189,7 @@ export const StyledHome = styled.div`
         padding-left: 60px;
         width: 50%;
         gap: 20px;
-        margin-top: 20px;
+        margin-top: 80px;
     }
 
     .introduction{
@@ -175,30 +205,6 @@ export const StyledHome = styled.div`
         display: flex;
         width: 100%;
         justify-content: left;
-    }
-
-    .socials .social-list{
-        display: flex;
-        list-style: none;
-        gap: 20px;
-    }
-
-    .social-list li, a{
-        color:  ${(props) => props.theme.componentColor};
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-
-    .social-list li::after{
-        content: "";
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        background-color: ${(props) => props.theme.componenctBack};
-        border-radius: 20px;
-        z-index: -1;
     }
 
     .seemore{
@@ -251,9 +257,8 @@ export const StyledHome = styled.div`
 
 @media screen and (max-width: 800px) {
     .landing-home-page{
-        width: 90%;
+        width: 80%;
     }
-
 }
 
 `
@@ -275,10 +280,6 @@ export const StyledProjects = styled.div`
     .title-page{
         width: 80%;
         color: ${(props) => props.theme.fontColor};
-    }
-
-    .title-page .little-text{
-        margin-left: -14px;
     }
 
     .title-page .big-text{
@@ -370,12 +371,10 @@ export const StyledProjects = styled.div`
         display: flex;
         justify-content: end;
         gap: 20px;
-        
     }
 
     .bottom-links div{
         padding: 5px;
-        
         font-family: 'Inknut Antiqua', serif;
         font-weight: 600;
         font-size: 13px;
@@ -516,15 +515,236 @@ export const StyledAbout = styled.div`
 
 export const StyledContacts = styled.div`
     section.contacts{
+        display: flex;
+        justify-content: center;
         padding-left: 60px;
-        padding-top: 120px;
+        padding-top: 160px;
         padding-bottom: 120px;
         width: 100%;
     }
 
-    img{
-        width: 20%;
+    .contact-form-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .title-page{
+        margin-left: 25px;
+        width: 100%;
+    }
+
+    .title-page span{
+        font-size: 40px;
+        color: ${(props) => props.theme.fontColor};
+    }
+
+    .contact-form{
+        display: flex;
+        justify-self: center;
+        justify-content: space-between;
+        max-width: 600px;
+        height: 400px;
+        padding: 20px;
+        border-radius: 5px;
+        gap: 20px;
+    }
+
+    .email-form{
+        display: flex;
+        justify-content: center;
+        width: 60%;
+    }
+
+    .email-form label{
+        font-size: 13px;
+        color: ${(props) => props.theme.fontColor};
+    }
+
+    .email-form input{
+        width: 100%;
+        font-size: 16px;
+        font-family: serif;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 10px;
+        padding-left: 10px;
+        color: ${(props) => props.theme.smallText};
+        outline: 1px solid ${(props) => props.theme.fontColor};
+        background-color: ${(props) => props.theme.backgroundColor};
+    }
+
+    .email-form input:focus{
+        outline: 1px solid ${(props) => props.theme.smallText};
+    }
+
+    .email-form form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .email-form textarea#message{
+        border-radius: 5px;
+        font-family: serif;
+        font-size: 16px;
+        text-align: justify;
+        height: 120px;
+        width: 100%;
+        resize: none;
+        line-height: 1.2;
+        padding: 5px 10px;
+        outline: 1px solid ${(props) => props.theme.fontColor};
+        border: none;   
+        color:  ${(props) => props.theme.smallText};
+        overflow-y: scroll;
+        background-color: ${(props) => props.theme.backgroundColor};
+    }
+
+    textarea#body:focus{
+        outline: 1px solid ${(props) => props.theme.smallText};
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        -webkit-text-fill-color: ${(props) => props.theme.smallText};
+        -webkit-box-shadow: 0 0 0px 100px ${(props) => props.theme.backgroundColor} inset;
+}
+
+    .contact-form .details{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    p.detail-text{
+        margin-bottom: 10px;
+        font-family: serif;
+        font-size: 16px;
+        text-align: justify;
+        color: ${(props) => props.theme.smallText};
+        line-height: 1.2;
+    }
+
+    .social-list{
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: right;
+    }
+
+    li.item::after{
+        background-color: ${(props) => props.theme.componenctBack};
+    }
+
+    .button-container {
+        display: flex;
+        margin-top: 10px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .button-backdrop{
+        position: absolute;
+        width:10%;
+        height: 100%;
+        background-color: ${(props) => props.theme.componenctBack};
+        z-index: -1;
+        transition: width 1000ms ease;
+        left: 0;
+    }
+
+    button#submit{
+        display: flex;
+        width: 100%;
+        gap: 5px;
+        border-radius: 5px;
+        align-items:  center;
+        justify-content: center;
+        padding: 5px 10px;
+        font-size: 13px;
+        color: ${(props) => props.theme.fontColor};
+        border: 1px solid ${(props) => props.theme.fontColor};
+        background-color: transparent;
+    }
+
+    #submit:hover .button-backdrop{
+        width: 150%;
+    }
+
+    #submit svg{
+        width: 20px;
+        height: 20px;
+        color: ${(props) => props.theme.fontColor};
+    }
+
+    @media screen and (max-width: 800px) {
+
+        section.contacts{
+            padding-top: 140px;
+            padding-bottom: 50px;
+        }
+        
+        .contact-form{
+            flex-direction: column;
+            height: auto;
+            width: 90%;
+        }
+
+        .contact-form .details{
+            width: 100%;
+        }
+
+        .email-form{
+            width: 100%;
+        }
+
+        .title-page{
+        width: 90%;
+        }
+
+        button#submit{
+        width: 100%;
+        }
+
+        .email-form textarea#body{
+            height: 100px;
+        }
+    }
+
+    @media screen and (min-width: 700px) and (min-height: 630px) {
+        section.contacts{
+            height: 100vh;
+    }
+
+    .contact-form-container{
+        display: flex;
+        justify-content: center;  
+    }
 
     }
-        
+
+    @media screen and (min-height: 880px) {
+        section.contacts{
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+    }
+
+        .contact-form-container{
+            display: flex;
+            justify-content: center;  
+    }
+    }
+
 `
