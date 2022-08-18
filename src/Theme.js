@@ -688,6 +688,35 @@ export const StyledContacts = styled.div`
         color: ${(props) => props.theme.fontColor};
     }
 
+    #isSent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        position: fixed;
+        padding: 5px 10px;
+        border-radius: -5px;
+        border: 1px solid ${(props) => props.theme.fontColor};
+        z-index: 100;
+        right: 0;
+        margin-right: -200px;
+        margin-top: -60px;
+        background-color: ${(props) => props.theme.componenctBack};
+        font-size: 10px;
+        color: ${(props) => props.theme.fontColor};
+        transition: margin 300ms ease-in-out;
+    }
+
+    #isSent svg{
+        width: 20px;
+        height: 20px;
+        color: ${(props) => props.theme.fontColor};
+    }
+
+    #isSent.sent{
+        margin-right: 5%;
+    }
+
     @media screen and (max-width: 800px) {
 
         section.contacts{

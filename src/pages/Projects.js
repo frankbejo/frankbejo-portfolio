@@ -30,7 +30,7 @@ const Projects = () => {
                     animate="visible">
                         {
                                 data.map((item, index) => {
-                                    return <Item {...item} index={index}/>
+                                    return <Item {...item} index={index} key={index}/>
                                 })
                             
                         }

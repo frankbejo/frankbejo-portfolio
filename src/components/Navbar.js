@@ -13,10 +13,7 @@ const Navbar = () => {
     const SetTheme = () => {
         settheme(!theme)
         localStorage.setItem("theme",theme)
-        console.log(theme)
     }
-
-    console.log(localStorage.getItem("theme"))
     
     return(
         <ThemeProvider theme={theme ? lightmode:darkmode}>
