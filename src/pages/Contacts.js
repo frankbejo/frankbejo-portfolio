@@ -5,11 +5,11 @@ import {faPaperPlane, faCheckSquare, faTimesSquare} from '@fortawesome/free-soli
 import {motion} from 'framer-motion';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ContactInputs from "../components/ContactInputs";
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
 
 const Contacts = () => {
     const form = useRef();
-    const [isSent, setIsSent] = useState("");
+    const [isSent, setIsSent] = useState("errorsending");
     const [values, setValues] = useState({
         name: "",
         email: "",
@@ -23,6 +23,7 @@ const Contacts = () => {
             type: "text",
             placeholder: "name",
             errorMessage: "enter a valid email",
+            pattern: "[^0-9@#!^&({})=+-]*",
             label:"your name"
         }, 
         {
@@ -38,29 +39,41 @@ const Contacts = () => {
     const IsSentTimer = () => {
         setTimeout( () => {
             setIsSent("")
-        }, 2000)
+        }, 5000)
     }
 
-
+    
+    
     const sendEmail = (e) => {
     e.preventDefault();
 
     // emailjs.sendForm('service_xbf8nh5', 'template_uo9jjlf', form.current, 'NqV1pveVGlyH5A_os')
     //     .then((result) => {
     //         setIsSent("sent")
-    //         IsSentTimer()
-    //         console.log(isSent)
+    //          IsSentTimer()
+    //          setValues({
+    //          name: "",
+    //          email: "",
+    //          message: ""
+    // })
     //     }, (error) => {
     //         setIsSent("errorsending")
     //         IsSentTimer()
     //         console.log(isSent)
     //     });
-    setIsSent("sent")
-    IsSentTimer()
+    
+            setIsSent("sent")
+            IsSentTimer()
     };
 
     const OnChangeValue = (e) => {
         setValues({...values, [e.target.name]: e.target.value})
+        console.log(values)
+    }
+    
+    const MessageChecker = (e) => {
+        setValues({...values, message: e.target.value})
+        values.message.length <= 30 ? console.log("yes"):console.log("not")
     }
 
     return(
@@ -71,17 +84,14 @@ const Contacts = () => {
             animate={{opacity: 1}}
             exit={{opacity: 0}}>
                 <div id="isSent" className={isSent}>
-                    {isSent == "sent" ?
-                    <>
-                    <FontAwesomeIcon icon={faCheckSquare} />
-                    <span>email sent</span>
-                    </> 
-                    : 
-                    <>
-                    <FontAwesomeIcon icon={faTimesSquare} />
-                    <span>error sending mail</span>
-                    </>
-                    }
+                    <div className="sent">
+                        <FontAwesomeIcon icon={faCheckSquare} />
+                        <span>email sent</span>
+                    </div>
+                    <div className="errorsending">
+                        <FontAwesomeIcon icon={faTimesSquare} />
+                        <span>error sending mail</span>
+                    </div>
                 </div>
                 <div className="contact-form-container">
                 <div className="title-page">
@@ -98,12 +108,12 @@ const Contacts = () => {
                                 }
                                 <label htmlFor="message">message</label>
                                 <br />
-                                <textarea name="message" id="message" spellCheck="false" value={values.message} onChange={(e) => setValues({...values, message: e.target.value})} required/>
+                                <textarea name="message" id="message" spellCheck="false" value={values.message} onChange={MessageChecker} required/>
                                 </div>
                             
                             <div className="button-container">
                                 
-                                <button type="submit" id="submit">
+                                <button type="submit" id="submit" onClick={() => {console.log(values)}}>
                                     send <FontAwesomeIcon icon={faPaperPlane} />
                                     <div className="button-backdrop"></div>
                                 </button>
