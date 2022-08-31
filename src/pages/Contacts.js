@@ -9,7 +9,7 @@ import ContactInputs from "../components/ContactInputs";
 
 const Contacts = () => {
     const form = useRef();
-    const [isSent, setIsSent] = useState("errorsending");
+    const [isSent, setIsSent] = useState("");
     const [values, setValues] = useState({
         name: "",
         email: "",

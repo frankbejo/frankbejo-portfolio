@@ -1,7 +1,7 @@
 import {motion} from 'framer-motion';
 import { Projectitem } from '../data';
 
-const Item = ({index, image, projectname, desc}) => {
+const Item = ({index, image, projectname, desc, liveviewlink, viewcodelink}) => {
 
     return(
         <motion.li 
@@ -17,11 +17,11 @@ const Item = ({index, image, projectname, desc}) => {
                 </div>
                 <div className="bottom-links">
                     <div className="view-code">
-                        <span>viewcode</span> 
+                        <a href={viewcodelink} target="_blank">viewcode</a>
                         <div className="viewcode-bg"></div>
                     </div>
                 <div className="view-live">
-                    viewlive
+                    <a href={liveviewlink} target="_blank">viewlive</a>
                 </div>
                 </div>
             </div>

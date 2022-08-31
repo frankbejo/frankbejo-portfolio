@@ -11,8 +11,8 @@ export const projects = [
             tablet_view: "../images/projects-view/jandf-clothing-home.jpg",
             other: "../images/projects-view/jandf-clothing-home.jpg"
         },
-        liveviewlink: "",
-        viewcodelink: "",
+        liveviewlink: "https://jandf-clothing.vercel.app/",
+        viewcodelink: "https://github.com/frankbejo/jandf-clothing",
         status: "online",
         deployment: "vercel"
     },

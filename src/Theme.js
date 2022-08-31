@@ -18,6 +18,7 @@ export const GlobalStyles = createGlobalStyle`
 
     ::-webkit-scrollbar-thumb{
         background-color: ${(props) => props.theme.smallText};
+        border: 1px solid ${(props) => props.theme.fontColor};
     }
 
     ::-webkit-scrollbar-track{
@@ -90,7 +91,8 @@ nav{
     justify-content: space-between;
     width: 100%;
     height: 60px;
-    background-color: ${(props) => props.theme.navColor};
+    background-color: ${(props) => props.theme.backgroundColor}99;
+    backdrop-filter: blur(20px);
 }
 
 .side-nav{
@@ -101,17 +103,17 @@ nav{
     position: fixed;
     height: 100vh;
     width: 60px;
-    padding: 10px;
-    background-color: ${(props) => props.theme.navColor};
     z-index: -1;
+    margin-left: 0;
+    background-color: ${(props) => props.theme.backgroundColor};
+    transition: margin 300ms ease-in-out;
 }
 
 .brand-logo img{
-    position: absolute;
     width: 50px;
     height: auto;
-    margin-top: -20px;
-    margin-left: 7px;
+    opacity: 100%;
+    margin-left: 10px;
 }
 
 .menu-list{
@@ -121,7 +123,6 @@ nav{
     gap: 10px;
     
 }
-
 
 .menu-list li a.active svg path{
     fill: ${(props) => props.theme.fontColor};
@@ -144,7 +145,8 @@ svg path{
     height: 20px;
     display: flex;
     padding: 1px;
-    margin-right: 7px;
+    margin-right: 15px;
+    margin-left: 15px;
     align-items: center;
     background-color: ${(props) => props.theme.fontColor};
     border-radius: 20px;
@@ -154,6 +156,50 @@ svg path{
 .toggle-theme.light{
     justify-content: end;
 }
+
+.top-nav .left{
+    position: fixed;
+}
+
+.bar{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    gap: 3px;
+    transform: rotate(90deg);
+}
+
+.bar .top, .mid, .bot{
+    content: "";
+    width: 2px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: ${(props) => props.theme.fontColor};
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+        .bar{
+            display: flex;
+        }
+
+        .top-nav .left{
+            position: relative;
+        }
+
+        .side-nav.show{
+            margin-left: 0;
+        }
+
+        .side-nav.hide{
+            margin-left: -60px;
+}
+
+    }
 `
 
 export const StyledHome = styled.div`
@@ -186,7 +232,6 @@ export const StyledHome = styled.div`
         position: relative;
         flex-direction: column;
         align-items: center;
-        padding-left: 60px;
         width: 50%;
         gap: 20px;
         margin-top: 80px;
@@ -257,7 +302,8 @@ export const StyledHome = styled.div`
 
 @media screen and (max-width: 800px) {
     .landing-home-page{
-        width: 80%;
+        width: 50%;
+        min-width: 230px;
     }
 }
 
@@ -271,7 +317,6 @@ export const StyledProjects = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-left: 60px;
         padding-top: 120px;
         padding-bottom: 120px;
         width: 100%;
@@ -383,9 +428,12 @@ export const StyledProjects = styled.div`
 
     .bottom-links .view-live{
         border: 1px solid ${(props) => props.theme.componentColor};
-        color: ${(props) => props.theme.backgroundColor};
         background-color: ${(props) => props.theme.smallText};
-        
+    }
+
+    .bottom-links .view-live a{
+        color: ${(props) => props.theme.backgroundColor};
+        text-decoration: none;
     }
 
     .bottom-links .view-code{
@@ -393,11 +441,14 @@ export const StyledProjects = styled.div`
         align-items: center;
         position: relative;
         overflow: hidden;
-        color: ${(props) => props.theme.fontColor};
-        
         border: 1px solid ${(props) => props.theme.componentColor};
     }
 
+    .bottom-links .view-code a{
+        color: ${(props) => props.theme.fontColor};
+        text-decoration: none;
+    }
+    
     .view-code .viewcode-bg{
         position: absolute;
         margin-left: -5px;
@@ -447,8 +498,8 @@ export const StyledProjects = styled.div`
     }
 
     .image-container{
-        width: calc(100vw / 2.7);
-        height: calc(100vw / 4.3);
+        width: calc(100vw / 2.5);
+        height: calc(100vw / 4);
     }
 
     .image-container img{
@@ -490,8 +541,8 @@ export const StyledProjects = styled.div`
     }
 
     .image-container{
-        width: calc(100vw / 1.3);
-        height: calc(100vw / 2.1);
+        width: calc(100vw / 1.1);
+        height: calc(100vw / 1.8);
     }
 
     }
@@ -500,16 +551,42 @@ export const StyledProjects = styled.div`
 
 export const StyledAbout = styled.div`
     section.about{
-        padding-left: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding-top: 120px;
         padding-bottom: 120px;
         width: 100%;
+        height: 100vh;
+    }
+
+    .content-container{
+        width: 80%;
+    }
+
+    .title-page span{
+        font-size: 40px;
+        color: ${(props) => props.theme.fontColor};
     }
 
     img{
-        width: 20%;
+        width: 300px;
+        height: 300px;
+        border: 2px solid ${(props) => props.theme.navColor};
+        border-radius: 5px;
+        filter: brightness(140%);
+    }   
 
+    .about-container{
+        display: flex;
+        gap: 10px;
     }
+
+    .about-container p{
+        color: ${(props) => props.theme.smallText};
+        text-align: justify;
+    }
+
         
 `
 
@@ -517,7 +594,6 @@ export const StyledContacts = styled.div`
     section.contacts{
         display: flex;
         justify-content: center;
-        padding-left: 60px;
         padding-top: 160px;
         padding-bottom: 120px;
         width: 100%;
