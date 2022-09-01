@@ -91,8 +91,8 @@ nav{
     justify-content: space-between;
     width: 100%;
     height: 60px;
-    background-color: ${(props) => props.theme.backgroundColor}99;
-    backdrop-filter: blur(20px);
+    background-color: ${(props) => props.theme.backgroundColor};
+    /* backdrop-filter: blur(20px); */
 }
 
 .side-nav{
@@ -324,7 +324,6 @@ export const StyledProjects = styled.div`
     }
 
     .title-page{
-        width: 80%;
         color: ${(props) => props.theme.fontColor};
     }
 
@@ -350,8 +349,6 @@ export const StyledProjects = styled.div`
         gap: 20px;
         width: 100%;
         justify-content: center;
-        padding-bottom: 20px;
-        border-bottom: 2px solid ${(props) => props.theme.componenctBack};
     }
 
     .project-list li.reverse{
@@ -374,6 +371,7 @@ export const StyledProjects = styled.div`
         border: 1px solid ${(props) => props.theme.fontColor};
         border-radius: 10px;
         overflow: hidden;
+        position: relative;
     }
 
     .item-right{
@@ -381,6 +379,14 @@ export const StyledProjects = styled.div`
         width: 495px;
         flex-direction: column;
         justify-content: space-between;
+    }
+
+    .image-container::before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(transparent, 60% , ${(props) => props.theme.fontColor}90);
     }
 
     .image-container img{
@@ -562,30 +568,61 @@ export const StyledAbout = styled.div`
     }
 
     .content-container{
-        width: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 60%;
+
     }
 
     .title-page span{
         font-size: 40px;
         color: ${(props) => props.theme.fontColor};
     }
+    
+    .image-container{
+        width: calc(100vw / 5);
+        height: calc(100vw / 5);
+        min-width: 200px;
+        min-height: 200px;
+        background-color:${(props) => props.theme.componenctBack};
+        border: 1px solid ${(props) => props.theme.fontColor};
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .image-container::before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(transparent, 60% , ${(props) => props.theme.fontColor}90);
+    }
 
     img{
-        width: 300px;
-        height: 300px;
-        border: 2px solid ${(props) => props.theme.navColor};
-        border-radius: 5px;
-        filter: brightness(140%);
+        width: 100%;
+        height: 100%;
+        background-size: cover;
     }   
 
     .about-container{
         display: flex;
+        justify-content: center;
         gap: 10px;
     }
 
     .about-container p{
+        width: 65%;
+        font-family: serif;
         color: ${(props) => props.theme.smallText};
         text-align: justify;
+    }
+
+    @media screen and (max-width: 800px) {
+        .content-container{
+            width: 80%;
+        }
     }
 
         

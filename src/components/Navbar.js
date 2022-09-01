@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Navbar = () => {
     const [theme, settheme] = useState(null)
     const [isMenu, setIsMenu] = useState(false)
-    const [width, setwidth] = useState(window.innerWidth)
 
     const SetTheme = () => {
         settheme(!theme)
@@ -19,12 +18,7 @@ const Navbar = () => {
 
     const SetMenu = () => {
         setIsMenu(!isMenu)
-        console.log(isMenu)
     }
-
-    useEffect(() => {
-        console.log("dawdawdawd")
-    }, [width])
 
     return(
         <ThemeProvider theme={theme ? lightmode:darkmode}>
