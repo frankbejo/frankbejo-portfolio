@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Navbar = () => {
     const [theme, settheme] = useState(null)
     const [isMenu, setIsMenu] = useState(false)
+    const [width, setwidth] = useState(window.innerWidth)
 
     const SetTheme = () => {
         settheme(!theme)
@@ -20,6 +21,10 @@ const Navbar = () => {
         setIsMenu(!isMenu)
         console.log(isMenu)
     }
+
+    useEffect(() => {
+        console.log("dawdawdawd")
+    }, [width])
 
     return(
         <ThemeProvider theme={theme ? lightmode:darkmode}>
@@ -49,22 +54,22 @@ const Navbar = () => {
                 <div className={`side-nav ${isMenu ? "show":"hide"}`}>
                     <ul className="menu-list">
                         <li>
-                            <NavLink to="/" className={({isActive}) => {return isActive ? "active":""}} onClick={() => SetMenu() }>
+                            <NavLink to="/" className={({isActive}) => {return isActive ? "active":""}} onClick={() => setIsMenu(false) }>
                                 <FontAwesomeIcon icon={faHome} />
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="projects" className={({isActive}) => {return isActive ? "active":""}} onClick={() => SetMenu() }>
+                            <NavLink to="projects" className={({isActive}) => {return isActive ? "active":""}} onClick={() => setIsMenu(false) }>
                                 <FontAwesomeIcon icon={faListCheck} />
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="about" className={({isActive}) => {return isActive ? "active":""}} onClick={() => SetMenu() }>
+                            <NavLink to="about" className={({isActive}) => {return isActive ? "active":""}} onClick={() => setIsMenu(false) }>
                                 <FontAwesomeIcon icon={faCircleQuestion} />
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="contacts" className={({isActive}) => {return isActive ? "active":""}} onClick={() => SetMenu() }>
+                            <NavLink to="contacts" className={({isActive}) => {return isActive ? "active":""}} onClick={() => setIsMenu(false) }>
                                 <FontAwesomeIcon icon={faPaperPlane} />
                             </NavLink>
                         </li>

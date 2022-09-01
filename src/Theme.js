@@ -163,6 +163,7 @@ svg path{
 
 .bar{
     display: none;
+    cursor: pointer;
     justify-content: center;
     align-items: center;
     width: 60px;
