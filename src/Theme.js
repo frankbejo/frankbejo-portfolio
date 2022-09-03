@@ -111,7 +111,7 @@ nav{
 
 .brand-logo img{
     width: 50px;
-    height: auto;
+    height: 40px;
     opacity: 100%;
     margin-left: 10px;
 }
