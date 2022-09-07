@@ -21,9 +21,7 @@ const Home = () => {
                         <span>frankbejo</span>
                     </div>
                 </div>
-                <p className="introduction">Lorem ipsum dolor sit amet 
-                consectetur adipisicing elit. Iure, saepe culpa! Facere 
-                cum numquam a amet placeat, consequatur eius exercitationem.</p>
+                <p className="introduction">i'm an entry level </p>
                 <div className="seemore">
                     <div className="seemore-button">
                     <span>learn more</span>
