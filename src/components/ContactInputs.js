@@ -1,9 +1,10 @@
 const ContactInputs = (props) => {
+    const {id, label, type, name, pattern, onchange, value} = props;
     return(
         <>
-            <label htmlFor={props.id}>{props.label}</label>
+            <label htmlFor={id}>{label}</label>
             <br />
-            <input type={props.type} name={props.name} id={props.id} spellCheck="false" pattern={props.pattern} value={props.value} onChange={props.onchange} required/>
+            <input type={type} name={name} id={id} spellCheck="false" pattern={pattern} value={value} onChange={onchange} required/>
             <br />
         </>
     )

@@ -17,7 +17,7 @@ const Socials = () => {
                         className='item'
                         variants={item}
                         >
-                            <a href="https://www.facebook.com/frank.bejo" target="_blank">
+                            <a href="https://www.facebook.com/frank.bejo" rel="noreferrer" target="_blank">
                                 <FontAwesomeIcon icon={faFacebook} />
                             </a>
                             
@@ -25,7 +25,7 @@ const Socials = () => {
                         <motion.li
                         className='item'
                         variants={item}>
-                            <a href="https://github.com/frankbejo" target="_blank">
+                            <a href="https://github.com/frankbejo" rel="noreferrer" target="_blank">
                                 <FontAwesomeIcon icon={faGithub} />
                             </a>
                             
@@ -33,7 +33,9 @@ const Socials = () => {
                         <motion.li
                         className='item'
                         variants={item}>
-                            <FontAwesomeIcon icon={faLinkedinIn} />
+                            <a href="https://www.linkedin.com/in/frankbejo" rel="noreferrer" target="_blank">
+                                <FontAwesomeIcon icon={faLinkedinIn} />
+                            </a>
                         </motion.li>
                     </motion.ul>
                 </StyledSocials>

@@ -13,7 +13,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     ::-webkit-scrollbar{
-        width: 5px;
+        width: 3px;
+        height: 3px;
     }
 
     ::-webkit-scrollbar-thumb{
@@ -257,7 +258,6 @@ export const StyledHome = styled.div`
         display: flex;
         width: 100%;
         justify-content: right;
-        color: ${(props) => props.theme.fontColor};
     }
 
     .seemore-button{
@@ -269,6 +269,11 @@ export const StyledHome = styled.div`
         padding: 6px;
         overflow: hidden;
         border: 1px solid ${(props) => props.theme.fontColor};
+    }
+
+    .seemore a{
+        text-decoration: none;
+        color: ${(props) => props.theme.fontColor};
     }
 
     .seemore-bg{
@@ -303,7 +308,7 @@ export const StyledHome = styled.div`
 
 @media screen and (max-width: 800px) {
     .landing-home-page{
-        width: 50%;
+        width: 70%;
         min-width: 230px;
     }
 }
@@ -406,7 +411,7 @@ export const StyledProjects = styled.div`
         display: -webkit-box;
         overflow : hidden;
         text-overflow: ellipsis;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;  
         text-align: justify;
         line-height: 1.2;
@@ -419,10 +424,34 @@ export const StyledProjects = styled.div`
         font-weight: bold;
     }
 
+    .tech-stack{
+        margin-top: 10px;
+        height: 100%;
+    }
+
+    .tech-list{
+        width: 100%;
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+        color: ${(props) => props.theme.smallText};
+    }
+
+    .tech-stack li.tech{
+        cursor: default;
+        font-size: 13px;
+        width: fit-content;
+        padding: 5px;
+        display: flex;
+        flex-grow: 1;
+        background-color: ${(props) => props.theme.navColor};
+        border-radius: 5px;
+    }
+
     .bottom-links{
         display: flex;
         justify-content: end;
-        gap: 20px;
+        gap: 5px;
     }
 
     .bottom-links div{
@@ -484,6 +513,7 @@ export const StyledProjects = styled.div`
     .project-list li{
         flex-direction: column;
         align-items: center;
+        justify-content: left;
     }
 
     .project-list li.reverse{
@@ -551,7 +581,6 @@ export const StyledProjects = styled.div`
         width: calc(100vw / 1.1);
         height: calc(100vw / 1.8);
     }
-
     }
 
 `
@@ -564,7 +593,7 @@ export const StyledAbout = styled.div`
         padding-top: 120px;
         padding-bottom: 120px;
         width: 100%;
-        height: 100vh;
+        min-height: 100vh;
     }
 
     .content-container{
@@ -572,27 +601,29 @@ export const StyledAbout = styled.div`
         flex-direction: column;
         gap: 10px;
         width: 60%;
-
     }
 
     .title-page span{
         font-size: 40px;
         color: ${(props) => props.theme.fontColor};
     }
-    
-    .image-container{
+
+    .about-container p img{
         width: calc(100vw / 5);
         height: calc(100vw / 5);
         min-width: 200px;
         min-height: 200px;
-        background-color:${(props) => props.theme.componenctBack};
+        background-color:${props => props.theme.componenctBack};
         border: 1px solid ${(props) => props.theme.fontColor};
         border-radius: 10px;
         overflow: hidden;
         position: relative;
+        margin: 0 30px 0 0;
+        display: block;
+        float: left;
     }
 
-    .image-container::before{
+    .about-container p img::before{
         content: "";
         position: absolute;
         width: 100%;
@@ -606,17 +637,34 @@ export const StyledAbout = styled.div`
         background-size: cover;
     }   
 
-    .about-container{
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-    }
-
     .about-container p{
-        width: 65%;
+        font-size: 16px;
+        width: 100%;
+        height: 100%;
         font-family: serif;
         color: ${(props) => props.theme.smallText};
         text-align: justify;
+    }
+
+    .about-container p span:nth-child(2),.about-container span:nth-child(1){
+        font-family: serif;
+        margin-right: 20px;
+    }
+    
+    .about-container p .hand{
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        animation: wave 600ms infinite alternate; 
+    }
+
+    @keyframes wave{
+        0%{
+            rotate: 0deg;
+        }
+        100%{
+            rotate: 80deg;
+        }
     }
 
     @media screen and (max-width: 800px) {
@@ -625,16 +673,56 @@ export const StyledAbout = styled.div`
         }
     }
 
-        
+    @media screen and (max-width: 420px){
+        .about-container p img{
+            width: 100%;
+            height: 100%;
+            margin-bottom: 30px;
+            display: block;
+            float: none;
+    }
+    }
+
+    .resume-button{
+        display: flex;
+        position: relative;
+        margin-top: 20px;
+        padding: 5px;
+        float: right;
+        border: 1px solid ${(props) => props.theme.fontColor};
+        border-radius: 5px;
+        overflow: hidden;
+
+    }
+
+    .about-container .resume-button a{
+        text-decoration: none;
+        color: ${(props) => props.theme.fontColor};
+    }
+
+    .about-container .resume-button .backdrop{
+        content: "";
+        margin: -5px;
+        position: absolute;
+        width: 20%;
+        height: 100%;
+        background-color: ${(props) => props.theme.navColor};
+        z-index: -1;
+        transition: width 200ms ease-in-out;
+    }
+
+    .resume-button:hover .backdrop{
+        width: 100%;
+    }
 `
 
 export const StyledContacts = styled.div`
     section.contacts{
         display: flex;
+        align-items: center;
         justify-content: center;
-        padding-top: 160px;
-        padding-bottom: 120px;
         width: 100%;
+        min-height: 100vh;
     }
 
     .contact-form-container{
@@ -840,7 +928,6 @@ export const StyledContacts = styled.div`
     }
 
     @media screen and (max-width: 800px) {
-
         section.contacts{
             padding-top: 140px;
             padding-bottom: 50px;

@@ -5,21 +5,21 @@ import {faPaperPlane, faCheckSquare, faTimesSquare} from '@fortawesome/free-soli
 import {motion} from 'framer-motion';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ContactInputs from "../components/ContactInputs";
-// import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 
 const Contacts = () => {
     const form = useRef();
     const [isSent, setIsSent] = useState("");
     const [values, setValues] = useState({
-        name: "",
-        email: "",
+        user_name: "",
+        user_email: "",
         message: ""
     })
 
     const inputdata = [
         {
             id: "name",
-            name: "name",
+            name: "user_name",
             type: "text",
             placeholder: "name",
             errorMessage: "enter a valid email",
@@ -28,42 +28,39 @@ const Contacts = () => {
         }, 
         {
             id: "email",
-            name: "email",
+            name: "user_email",
             type: "email",
             placeholder: "email",
             label:"your email"
         } 
     ]
 
-    //set timer for isSent state 
-    const IsSentTimer = () => {
-        setTimeout( () => {
-            setIsSent("")
-        }, 5000)
-    }
-
-    
-    
     const sendEmail = (e) => {
     e.preventDefault();
 
-    // emailjs.sendForm('service_xbf8nh5', 'template_uo9jjlf', form.current, 'NqV1pveVGlyH5A_os')
-    //     .then((result) => {
-    //         setIsSent("sent")
-    //          IsSentTimer()
-    //          setValues({
-    //          name: "",
-    //          email: "",
-    //          message: ""
-    // })
-    //     }, (error) => {
-    //         setIsSent("errorsending")
-    //         IsSentTimer()
-    //         console.log(isSent)
-    //     });
+    emailjs.sendForm('service_xbf8nh5', 'template_uo9jjlf', form.current, 'NqV1pveVGlyH5A_os')
+        .then((result) => {
+            setIsSent("sent")
+            setTimeout( () => {
+                setIsSent("")
+            }, 5000)
+            setValues({
+            name: "",
+            email: "",
+            message: ""
+    })
+        }, (error) => {
+            setIsSent("errorsending")
+            setTimeout( () => {
+                setIsSent("")
+            }, 5000)
+            console.log(isSent)
+        });
     
             setIsSent("sent")
-            IsSentTimer()
+            setTimeout( () => {
+            setIsSent("")
+        }, 5000)
     };
 
     const OnChangeValue = (e) => {
@@ -119,8 +116,8 @@ const Contacts = () => {
                                 </button>
                             </div>
 
-                            
                         </form>
+                        
                     </div>
                     <div className="details">
                         <p className="detail-text">

@@ -3,6 +3,7 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { StyledHome } from "../Theme";
 import {motion} from 'framer-motion';
 import Socials from '../components/Socials';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return(
@@ -21,13 +22,15 @@ const Home = () => {
                         <span>frankbejo</span>
                     </div>
                 </div>
-                <p className="introduction">i'm an entry level </p>
+                <p className="introduction">i'm a front-end web developer </p>
                 <div className="seemore">
-                    <div className="seemore-button">
-                    <span>learn more</span>
-                    <FontAwesomeIcon icon={faChevronRight} />
-                    <div className="seemore-bg"></div>
-                    </div>
+                    <Link to="/about">
+                        <div className="seemore-button">
+                            <span>learn more</span>
+                            <FontAwesomeIcon icon={faChevronRight} />
+                            <div className="seemore-bg"></div>
+                        </div>
+                    </Link>
                 </div>
                 <div className="socials">
                     <Socials />

@@ -5,7 +5,7 @@ import products_tablet from './images/projects-view/jandf-clothing-products-tabl
 export const projects = [
     {
         projectname: "&Clothing",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dolor culpa provident aliquid eveniet dignissimos inventore cupiditate! Impedit, quaerat sed!",
+        desc: "&Clothing / J & F is a clothing line that uses waste materials, useless or unwanted products by upcycling and with our local designers, they can showcase their designs and help the massive waste problem cause by clothing industry.",
         image: {
             desktop_view: desktop,
             tablet_view: "../images/projects-view/jandf-clothing-home.jpg",
@@ -14,7 +14,8 @@ export const projects = [
         liveviewlink: "https://jandf-clothing.vercel.app/",
         viewcodelink: "https://github.com/frankbejo/jandf-clothing",
         status: "online",
-        deployment: "vercel"
+        deployment: "vercel",
+        stack: ["styled-components","reactjs","react-router","redux","nodejs","express","mongodb"]
     },
     {
         projectname: "Kanban Board",
