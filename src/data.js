@@ -15,7 +15,7 @@ export const projects = [
         viewcodelink: "https://github.com/frankbejo/jandf-clothing",
         status: "online",
         deployment: "vercel",
-        stack: ["styled-components","reactjs","react-router","redux","nodejs","express","mongodb"]
+        stack: ["styled-components","reactjs","react-router","redux","nodejs","express","mongodb","vercel"]
     },
     {
         projectname: "Kanban Board",
