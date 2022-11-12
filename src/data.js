@@ -1,7 +1,7 @@
 import desktop from './images/projects-view/jandf-clothing-home.JPG'
 import products from './images/projects-view/jandf-clothing-products.JPG'
 import products_tablet from './images/projects-view/jandf-clothing-products-tablet.JPG'
-
+import instagram_clone from './images/projects-view/instagram_clone.png'
 export const projects = [
     {
         projectname: "&Clothing",
@@ -16,6 +16,20 @@ export const projects = [
         status: "online",
         deployment: "vercel",
         stack: ["styled-components","reactjs","react-router","redux","nodejs","express","mongodb","vercel"]
+    },
+    {
+        projectname: "Instagram clone",
+        desc: "I developed a instagram clone using nextjs, instagram is a social media platform for images and videos",
+        image: {
+            desktop_view: instagram_clone,
+            tablet_view: "../images/projects-view/jandf-clothing-home.jpg",
+            other: "../images/projects-view/jandf-clothing-home.jpg"
+        },
+        liveviewlink: "https://instagram-clone-nextjs-tau.vercel.app/",
+        viewcodelink: "https://github.com/frankbejo/instagram_clone_nextjs",
+        status: "online",
+        deployment: "vercel",
+        stack: ["reactjs","nextjs","serverless","mongodb","vercel"]
     },
     {
         projectname: "Kanban Board",
