@@ -16,6 +16,7 @@ const Item = ({index, image, projectname, desc, liveviewlink, viewcodelink, stac
                 <p>{desc}</p>
                 </div>
                 
+                <div className="project-stack">
                 <div className="tech-stack">
                     <ul className="tech-list">
                     {stack ? (stack.map(tech => {
@@ -53,6 +54,8 @@ const Item = ({index, image, projectname, desc, liveviewlink, viewcodelink, stac
                     
                 
                 </div>
+                </div>
+                
             </div>
         </motion.li>
     )

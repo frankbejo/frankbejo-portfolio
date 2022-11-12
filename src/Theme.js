@@ -379,9 +379,16 @@ export const StyledProjects = styled.div`
         position: relative;
     }
 
+    .project-stack{
+        display:flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
     .item-right{
         display: flex;
         width: 495px;
+        flex-grow: 1;
         flex-direction: column;
         justify-content: space-between;
     }
@@ -405,6 +412,7 @@ export const StyledProjects = styled.div`
         gap: 10px;
         flex-direction: column;
         color: ${(props) => props.theme.fontColor};
+        justify-content: start;
     }
 
     .project-tittle p{
@@ -511,9 +519,10 @@ export const StyledProjects = styled.div`
     }
 
     .project-list li{
+        height: 100%;
         flex-direction: column;
         align-items: center;
-        justify-content: left;
+        justify-content: space-between;
     }
 
     .project-list li.reverse{
@@ -522,6 +531,7 @@ export const StyledProjects = styled.div`
     }
 
     .project-list li.reverse .bottom-links{
+        display: flex;
         justify-content: end;
     }
 
@@ -529,9 +539,19 @@ export const StyledProjects = styled.div`
         text-align: left;
     }
 
+    .project-stack{
+        display: flex;
+        flex-basis: 0;
+        gap: 5px;
+    }
+
     .item-right{
         gap: 20px;
-        width: auto;
+        width: 100%;
+    }
+
+    .bottom-links{
+        display: flex;
     }
 
     .image-container{
